@@ -18,7 +18,7 @@ import org.springframework.util.StringUtils;
 @ToString
 public class Result2Web<T> {
     private String code;
-    private T body;
+    private T data;
     private String msg;
 
     public static <T> Result2Web<T> success(T object) {
@@ -26,7 +26,7 @@ public class Result2Web<T> {
         if (ObjectUtils.isEmpty(object)) {
             tResult2Web.setCode(ResultCode.SUCCESS);
         } else {
-            tResult2Web.setBody(object);
+            tResult2Web.setData(object);
             tResult2Web.setCode(ResultCode.SUCCESS);
         }
         return tResult2Web;

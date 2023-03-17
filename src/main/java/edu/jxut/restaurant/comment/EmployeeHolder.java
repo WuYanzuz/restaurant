@@ -15,6 +15,10 @@ public class EmployeeHolder {
         LOCAL.set(employee);
     }
 
+    public static Employee get(){
+        return LOCAL.get();
+    }
+
     public static void removeEmployee(Employee employee){
         LOCAL.remove();
     }

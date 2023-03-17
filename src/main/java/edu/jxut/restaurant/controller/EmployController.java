@@ -1,6 +1,7 @@
 package edu.jxut.restaurant.controller;
 
 import edu.jxut.restaurant.comment.Result2Web;
+import edu.jxut.restaurant.pojo.Employee;
 import edu.jxut.restaurant.service.EmployeeServer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,19 @@ public class EmployController {
     @GetMapping("/page")
     public Result2Web getEmpByPage(@RequestParam("page")Integer page, @RequestParam("pageSize")Integer pageSize, @RequestParam(value = "name",required = false)String name){
         return employeeServer.getEmployeesByPage(page,pageSize,name);
+    }
+
+    @PutMapping
+    public Result2Web setStatus(@RequestBody Employee employee){
+        return employeeServer.setStatus(employee);
+    }
+
+    @GetMapping("/{id}")
+    public Result2Web queryById(@PathVariable("id") String id){
+        return employeeServer.queryById(id);
+    }
+    @PostMapping
+    public Result2Web AddEmp(@RequestBody Employee employee){
+        return employeeServer.addEmo(employee);
     }
 }
